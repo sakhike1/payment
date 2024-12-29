@@ -12,11 +12,18 @@
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "aos": "^2.3.4",
+    "bcryptjs": "^2.4.3",
+    "firebase": "^11.1.0",
     "framer-motion": "^11.15.0",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.469.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-firebase-hooks": "^5.1.1",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^7.1.1",
     "react-slick": "^0.30.3",
+    "react-spring": "^9.7.5",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {

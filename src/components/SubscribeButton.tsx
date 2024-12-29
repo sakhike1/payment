@@ -11,7 +11,7 @@ export const SubscribeButton = ({isLoading, onClick}: SubscribeButtonProps) => {
         <motion.button
             whileHover={{scale: 1.05}}
             whileTap={{scale: 0.95}}
-            className="bg-gradient-to-r from-blue-500 via-green-100 to-amber-50 hover:bg-blue-700 transition-all text-gray-600 rounded-full px-6 py-2.5 flex items-center gap-2"
+            className="border border-purple-600 focus:outline-none   text-gray-600 rounded-full px-6 py-2.5 flex items-center gap-2"
             onClick={onClick}
             disabled={isLoading}
         >
@@ -19,7 +19,7 @@ export const SubscribeButton = ({isLoading, onClick}: SubscribeButtonProps) => {
                 <motion.div
                     animate={{rotate: 360}}
                     transition={{duration: 1, repeat: Infinity, ease: "linear"}}
-                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                    className="w-5 h-5  rounded-full"
                 />
             ) : (
                 <>

@@ -3,7 +3,7 @@ import {CreditCard, Banknote, Shield} from "lucide-react";
 import "aos/dist/aos.css";
 import AOS from "aos";
 
-import ProcessSection from '../components/ProcessSection'
+import ProcessSection from "../components/ProcessSection";
 
 const HeroSection = () => {
     const [isFirstCard, setIsFirstCard] = useState(true);
@@ -31,18 +31,18 @@ const HeroSection = () => {
             data-aos="fade-up"
             data-aos-duration="3000"
         >
-            <div className="w-full px-4">
+            <div className="w-full  px-4">
                 {/* Main Content */}
-                <div className="flex flex-col items-center text-center w-full">
+                <div className="flex flex-col items-center text-center mt-20 w-full">
                     <h1 className="text-4xl lg:text-5xl font-bold text-gray-600 mb-6 animate-text">
-                        Streamline Your Small Business Payments
+                        Streamline Your Business Payments
                     </h1>
                     <p className="text-m lg:text-m text-gray-700 mb-8 animate-text">
                         Our payment services make it easy for your local business to accept and manage payments with
                         confidence.
                     </p>
                     <button
-                        className="inline-flex hover:shadow-2xl items-center px-8 py-3 bg-gradient-to-br from-purple-500 to-purple-600 text-white hover:bg-purple-50 font-semibold rounded-full transition-colors animate-button"
+                        className="inline-flex hover:shadow-2xl items-center px-5 py-3 bg-gradient-to-br from-purple-500 to-purple-600 text-white hover:bg-purple-50  rounded-full transition-colors animate-button"
                         data-aos="fade-right"
                     >
                         <CreditCard className="mr-2 h-5 w-5" />

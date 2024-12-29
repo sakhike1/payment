@@ -1,25 +1,52 @@
+// src/App.tsx
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import PersonalPay from "./pages/PersonalPay";
+import ProcessPayment from "./components/ProcessPayment";
+import RecurringBilling from "./components/RecurringBilling";
+import InvoiceManagement from "./pages/InvoiceManagement";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import NavBar from "./components/NavBar";
-import HeroSection from "./components/HeroSection";
+import Footer from "./components/FooterSection";
+import Dashboard from './components/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
+import ScrollUpButton from './components/ScrollUpButton';
 
-import StatsSection from "./components/StatsSection";
-import PaymentReceiver from "./components/PaymentReceiver";
-import HappyClients from "./components/HappyClients";
-import SubscribeSection from "./components/SubscribeSection";
-import FooterSection from "./components/FooterSection";
 const App: React.FC = () => {
     return (
-        <div>
-            <NavBar />
-            <HeroSection />
+        <Router>
+            <div>
+                <NavBar />
 
-            <StatsSection />
-            <PaymentReceiver />
-            <HappyClients />
-            <SubscribeSection />
-            <FooterSection />
-            {/* Add other components here */}
-        </div>
+                <div className="min-h-screen bg-gray-50">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/Login" element={<Login />} />
+                        <Route path="/SignUp" element={<SignUp />} />
+                        <Route path="/About" element={<About />} />
+                        <Route path="/PersonalPay" element={<PersonalPay />} />
+                        <Route path="/ProcessPayment" element={<ProcessPayment />} />
+                        <Route path="/InvoiceManagement" element={<InvoiceManagement />} />
+                        <Route path="/RecurringBilling" element={<RecurringBilling />} />
+                        <Route
+                            path="/dashboard"
+                            element={
+                                <ProtectedRoute>
+                                    <Dashboard />
+                                </ProtectedRoute>
+                            }
+                        />
+                    </Routes>
+                </div>
+                <ScrollUpButton />
+                <section className="">
+                    <Footer />
+                </section>
+            </div>
+        </Router>
     );
 };
 
