@@ -14,6 +14,10 @@ import Footer from "./components/FooterSection";
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollUpButton from './components/ScrollUpButton';
+import CreateInvoice from "./pages/CreateInvoice";
+import Chatbot from './components/ChatBot';
+
+
 
 const App: React.FC = () => {
     return (
@@ -31,6 +35,8 @@ const App: React.FC = () => {
                         <Route path="/ProcessPayment" element={<ProcessPayment />} />
                         <Route path="/InvoiceManagement" element={<InvoiceManagement />} />
                         <Route path="/RecurringBilling" element={<RecurringBilling />} />
+                        <Route path="/CreateInvoice" element={<CreateInvoice/>} />
+
                         <Route
                             path="/dashboard"
                             element={
@@ -41,8 +47,10 @@ const App: React.FC = () => {
                         />
                     </Routes>
                 </div>
+               
                 <ScrollUpButton />
                 <section className="">
+                <Chatbot />
                     <Footer />
                 </section>
             </div>

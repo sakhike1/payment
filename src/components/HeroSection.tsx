@@ -42,12 +42,12 @@ const HeroSection = () => {
                         confidence.
                     </p>
                     <button
-                        className="inline-flex hover:shadow-2xl items-center px-5 py-3 bg-gradient-to-br from-purple-500 to-purple-600 text-white hover:bg-purple-50  rounded-full transition-colors animate-button"
-                        data-aos="fade-right"
-                    >
-                        <CreditCard className="mr-2 h-5 w-5" />
-                        Accept Payments
-                    </button>
+    className="inline-flex hover:shadow-2xl items-center px-5 py-3 border border-purple-700  text-purple-700 hover:bg-purple-50 rounded-full transition-colors animate-button focus:outline-none focus:ring-0"
+    data-aos="fade-right"
+>
+    <CreditCard className="mr-2 h-5 w-5" />
+    Accept Payments
+</button>
                 </div>
 
                 {/* Features Grid */}

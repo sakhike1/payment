@@ -70,9 +70,9 @@ const PersonalPaymentInfo = () => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="inline-block p-2 bg-blue-50 rounded-full mb-4"
+          className="inline-block p-2 mt-20 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-indigo-500 via-lime-800 to-fuchsia-400 rounded-full mb-4"
         >
-          <Wallet className="h-8 w-8 text-blue-600" />
+          <Wallet className="h-8 w-8 text-white" />
         </motion.div>
         <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
           Personal Payments, Simplified
@@ -94,7 +94,7 @@ const PersonalPaymentInfo = () => {
             whileHover={{ scale: 1.02 }}
             onHoverStart={() => setHoveredFeature(index)}
             onHoverEnd={() => setHoveredFeature(null)}
-            className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+            className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-200 via-indigo-100 to-orange-50 backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-white/20"
           >
             <div className="flex items-start space-x-4">
               <motion.div
@@ -107,8 +107,8 @@ const PersonalPaymentInfo = () => {
                 <feature.icon className={`h-6 w-6 text-${feature.color}-600`} />
               </motion.div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-black">{feature.title}</h3>
+                <p className="text-gray-700 text-xs">{feature.description}</p>
               </div>
             </div>
           </motion.div>
@@ -123,7 +123,7 @@ const PersonalPaymentInfo = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold flex items-center space-x-2 mx-auto hover:shadow-lg transition-shadow"
+          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold flex items-center space-x-2 mx-auto hover:shadow-lg transition-shadow focus:outline-none focus:ring-0"
         >
           <span>Start Sending Money</span>
           <ArrowRight className="h-5 w-5" />
@@ -136,11 +136,11 @@ const PersonalPaymentInfo = () => {
       {/* Security Notice */}
       <motion.div
         variants={itemVariants}
-        className="mt-8 bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-yellow-300 via-sky-200 to-orange-100 p-6 rounded-xl border border-blue-100"
+        className="mt-8 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-cyan-300 via-sky-200 to-pink-50 p-6 rounded-xl border border-blue-100"
       >
         <div className="flex items-center space-x-3">
-          <ShieldCheck className="h-6 w-6 text-blue-600" />
-          <p className="text-blue-800">
+          <ShieldCheck className="h-6 w-6 text-green-500" />
+          <p className="text-black text-xs">
             Your security is our priority. All transactions are protected with enterprise-grade encryption.
           </p>
         </div>

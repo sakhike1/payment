@@ -46,7 +46,7 @@ const NavBar: React.FC = () => {
 
             <div className="relative">
               <button
-                className="flex items-center text-gray-600 hover:text-purple-700 transition-colors duration-200"
+                className="flex items-center text-gray-600 hover:text-purple-700 transition-colors duration-200 focus:outline-none focus:ring-0 focus:border-none"
                 onClick={toggleProducts}
               >
                 Products
@@ -96,14 +96,14 @@ const NavBar: React.FC = () => {
               {user ? (
                 <button
                   onClick={handleLogout}
-                  className="border focus:outline-none border-purple-600 text-gray-700 hover:text-gray-500 px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200"
+                  className="border border-purple-600 text-gray-700 hover:text-gray-500 px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-0 focus:border-none"
                 >
                   Logout
                 </button>
               ) : (
                 <button
                   onClick={handleLogin}
-                  className="border focus:outline-none border-purple-600 text-gray-700 hover:text-gray-500 px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200"
+                  className="border border-purple-600 text-gray-700 hover:text-gray-500 px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200 focus:outline-none "
                 >
                   Login
                 </button>
@@ -114,7 +114,7 @@ const NavBar: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-gray-600 hover:text-purple-700 transition-colors border border-purple-600 focus:outline-none duration-200"
+              className="text-gray-600 hover:text-purple-700 transition-colors border border-purple-600 focus:outline-none focus:ring-0 focus:border-none duration-200"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -137,7 +137,7 @@ const NavBar: React.FC = () => {
             <div>
               <button
                 onClick={toggleProducts}
-                className="flex items-center focus:outline-none w-full text-gray-600 hover:text-purple-700 transition-colors duration-200 rounded-full border border-purple-600"
+                className="flex items-center w-full bg-purple-400 text-gray-600 hover:text-purple-700 transition-colors duration-200 rounded-full border border-purple-600 focus:outline-none focus:ring-0 focus:border-none"
               >
                 Products
                 <ChevronDown
@@ -193,14 +193,14 @@ const NavBar: React.FC = () => {
               {user ? (
                 <button
                   onClick={handleLogout}
-                  className="flex items-center justify-center pr-4 h-12 mr-4 focus:outline-none w-full text-gray-800 transition-colors duration-200 rounded-full border border-purple-600"
+                  className="flex items-center justify-center pr-4 h-12 mr-4 w-full text-gray-800 transition-colors duration-200 rounded-full border border-purple-600 focus:outline-none "
                 >
                   Logout
                 </button>
               ) : (
                 <button
                   onClick={handleLogin}
-                  className="flex items-center justify-center pr-4 h-12 mr-4 focus:outline-none w-full text-gray-800 transition-colors duration-200 rounded-full border border-purple-600"
+                  className="flex items-center justify-center pr-4 h-12 mr-4 w-full text-gray-800 transition-colors duration-200 rounded-full border border-purple-600 focus:outline-none focus:ring-0 "
                 >
                   Login
                 </button>

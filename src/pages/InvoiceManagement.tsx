@@ -2,7 +2,7 @@ import InvoiceManagement from '../components/InvoiceManagement'
 
 const invoiceManagement = () => {
   return (
-    <div className='mt-20'>
+    <div className=''>
       <InvoiceManagement/>
     </div>
   )

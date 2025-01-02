@@ -8,8 +8,6 @@ const ScrollUpButton = () => {
 
   const gradients = [
     'bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-fuchsia-500 via-blue-400 to-teal-100',
-    'bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-200 via-violet-900 to-gray-900',
-    'bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-red-300 via-purple-600 to-violet-700',
     'bg-gradient-to-br from-violet-200 via-violet-900 to-yellow-50'
   ];
 
@@ -62,7 +60,7 @@ const ScrollUpButton = () => {
   return (
     <div className="fixed bottom-4 right-4 mb-[100px] z-50">
       {/* Pulse animation ring */}
-      <div className="absolute inset-0 rounded-full focus:outline-none animate-ping bg-white opacity-10" />
+      <div className="absolute inset-0 rounded-full animate-ping bg-white opacity-10" />
       
       {/* Main button */}
       <button
@@ -91,7 +89,7 @@ const ScrollUpButton = () => {
       >
         {/* Icon */}
         <ChevronUp 
-          className="w-10 h-10 transition-transform focus:outline-none duration-300 group-hover:animate-bounce" 
+          className="w-10 h-10 transition-transform duration-300 group-hover:animate-bounce" 
           strokeWidth={2.5}
         />
 
@@ -104,7 +102,7 @@ const ScrollUpButton = () => {
           group-hover:opacity-100 
           transition-opacity 
           duration-300
-          focus:outline-none
+          btn-no-border inset-y-0 focus:outline-none focus:ring-0
         " />
       </button>
 
@@ -128,7 +126,7 @@ const ScrollUpButton = () => {
         py-1 
         rounded-full
         pointer-events-none
-        focus:outline-none
+        btn-no-border inset-y-0 focus:outline-none focus:ring-0
       ">
         Back to top
       </div>

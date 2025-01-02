@@ -25,7 +25,7 @@ const PaymentCard: React.FC<PaymentCardProps> = ({
       }}
       whileHover={{ scale: 1.05 }}
       className={`p-6 rounded-xl shadow-md transition-all duration-500 cursor-pointer h-full
-                bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-green-100 via-orange-200 to-lime-500 backdrop-blur-sm bg-opacity-90
+                bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-400 via-zinc-300 to-zinc-400 backdrop-blur-sm bg-opacity-90
                 `}
     >
       <motion.div
@@ -36,10 +36,10 @@ const PaymentCard: React.FC<PaymentCardProps> = ({
         transition={{ duration: 0.5 }}
         className="p-3 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4"
       >
-        <Icon className="h-6 w-6 text-black" />
+        <Icon className="h-6 w-6 text-gray-900" />
       </motion.div>
-      <h3 className="font-semibold text-gray-800 mb-2 text-center">{title}</h3>
-      <p className="text-sm text-gray-600 text-center">{description}</p>
+      <h3 className="font-semibold text-xs text-gray-700 mb-2 text-center">{title}</h3>
+      <p className="text-sm text-gray-800 text-m text-center">{description}</p>
     </motion.div>
   );
 };

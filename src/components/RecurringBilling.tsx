@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { CreditCard, Shield, Clock, Settings, RefreshCw, Users, ArrowRight, Check } from 'lucide-react';
+import { CreditCard, Shield, Clock, Settings, RefreshCw, Users, ArrowRight, Check, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const RecurringBilling = () => {
   const [activeFeature, setActiveFeature] = useState(null);
   const [animationIndex, setAnimationIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   const features = [
     {
@@ -13,9 +15,10 @@ const RecurringBilling = () => {
       benefits: [
         "Multiple billing frequencies",
         "Automatic payment retry",
-        "Dunning management"
+        "Dunning management",
+        "Revenue recovery automation"
       ],
-      color: "bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-stone-500 via-violet-700 to-emerald-100"
+      stats: { users: "10K+", success: "99.9%", savings: "30%" }
     },
     {
       title: "Enterprise-Grade Security",
@@ -24,9 +27,10 @@ const RecurringBilling = () => {
       benefits: [
         "PCI DSS Level 1",
         "Tokenized card storage",
-        "Fraud prevention"
+        "Fraud prevention",
+        "Real-time monitoring"
       ],
-      color: "bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-500 to-purple-600"
+      stats: { encrypted: "100%", uptime: "99.99%", protected: "1M+" }
     },
     {
       title: "Intelligent Retry System",
@@ -35,9 +39,10 @@ const RecurringBilling = () => {
       benefits: [
         "Custom retry schedules",
         "Automated notifications",
-        "Failed payment recovery"
+        "Failed payment recovery",
+        "Smart dunning timing"
       ],
-      color: "bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-500 to-purple-600"
+      stats: { recovery: "85%", reduction: "40%", saved: "$2M+" }
     },
     {
       title: "Advanced Subscription Tools",
@@ -46,9 +51,10 @@ const RecurringBilling = () => {
       benefits: [
         "Usage-based billing",
         "Tiered pricing",
-        "Proration handling"
+        "Proration handling",
+        "Custom price points"
       ],
-      color: "bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-stone-500 via-violet-700 to-emerald-100"
+      stats: { plans: "∞", active: "50K+", growth: "45%" }
     },
     {
       title: "Multi-Payment Support",
@@ -57,9 +63,10 @@ const RecurringBilling = () => {
       benefits: [
         "Credit & debit cards",
         "ACH & bank transfers",
-        "Digital wallets"
+        "Digital wallets",
+        "Cryptocurrency"
       ],
-      color: "bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-stone-500 via-violet-700 to-emerald-100"
+      stats: { methods: "20+", processed: "$1B+", global: "180+" }
     },
     {
       title: "Self-Service Portal",
@@ -68,9 +75,10 @@ const RecurringBilling = () => {
       benefits: [
         "Payment method updates",
         "Subscription management",
-        "Billing history"
+        "Billing history",
+        "Usage analytics"
       ],
-      color: "bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-stone-500 via-violet-700 to-emerald-100"
+      stats: { satisfaction: "95%", time: "-60%", retained: "40%" }
     }
   ];
 
@@ -78,89 +86,136 @@ const RecurringBilling = () => {
     const interval = setInterval(() => {
       setAnimationIndex(Math.floor(Math.random() * features.length));
     }, 3000);
-
+    setIsVisible(true);
     return () => clearInterval(interval);
   }, [features.length]);
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Recurring Billing
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Next-Gen
             </span>
-            <span className="text-gray-900"> System</span>
+            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              {" "}Billing
+            </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Transform your subscription business with our powerful recurring billing platform
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Transform your subscription business with AI-powered recurring billing
           </p>
-        </div>
+        </motion.div>
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             const isActive = activeFeature === index || animationIndex === index;
+            
             return (
-              <div
+              <motion.div
                 key={index}
+                custom={index}
+                initial="hidden"
+                animate="visible"
+                variants={cardVariants}
+                whileHover={{ scale: 1.03 }}
                 className="group relative"
                 onMouseEnter={() => setActiveFeature(index)}
                 onMouseLeave={() => setActiveFeature(null)}
               >
-                <div className={`h-full bg-white rounded-2xl p-8 transition-all duration-500
-                  ${isActive ? 'shadow-xl scale-105' : 'shadow-md hover:shadow-lg'}`}>
+                <div className={`h-full bg-gradient-to-br from-slate-800 to-slate-900 
+                  rounded-2xl p-8 transition-all duration-500 border border-gray-800
+                  ${isActive ? 'shadow-2xl shadow-purple-500/20 border-purple-500/50' : 'shadow-lg'}`}>
                   
                   {/* Icon */}
-                  <div className={`w-14 h-14 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-r ${feature.color}
-                    transform transition-all duration-500 ${isActive ? 'scale-110' : ''}`}>
+                  <motion.div 
+                    animate={{ rotate: isActive ? 360 : 0 }}
+                    transition={{ duration: 0.5 }}
+                    className={`w-14 h-14 rounded-xl mb-6 flex items-center justify-center
+                      bg-gradient-to-r from-purple-500 to-pink-500`}
+                  >
                     <Icon className="w-6 h-6 text-white" />
-                  </div>
+                  </motion.div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-white mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-400 mb-6">
                     {feature.description}
                   </p>
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    {Object.entries(feature.stats).map(([key, value]) => (
+                      <div key={key} className="text-center">
+                        <div className="text-purple-400 font-bold">{value}</div>
+                        <div className="text-xs text-gray-500 capitalize">{key}</div>
+                      </div>
+                    ))}
+                  </div>
 
                   {/* Benefits */}
                   <div className="space-y-3">
                     {feature.benefits.map((benefit, idx) => (
                       <div key={idx} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-500" />
-                        <span className="text-gray-600 text-sm">{benefit}</span>
+                        <Check className="w-4 h-4 text-green-400" />
+                        <span className="text-gray-400 text-sm">{benefit}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Learn More Link */}
-                  <div className={`mt-8 flex items-center text-sm font-medium transition-all duration-500
-                    ${isActive ? 'text-blue-600' : 'text-gray-500'}`}>
+                  <motion.div
+                    animate={{ x: isActive ? 5 : 0 }}
+                    className="mt-8 flex items-center text-sm font-medium text-purple-400 group-hover:text-purple-300"
+                  >
                     Learn more
-                    <ArrowRight className={`ml-2 w-4 h-4 transition-transform duration-500
-                      ${isActive ? 'translate-x-1' : ''}`} />
-                  </div>
-
-                  {/* Background Gradient */}
-                  <div className={`absolute inset-0 rounded-2xl ${feature.color} opacity-0
-                    transition-opacity duration-500 -z-10 ${isActive ? 'opacity-20' : ''}`} />
+                    <ChevronRight className="ml-2 w-4 h-4" />
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 text-center">
-          <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="mt-20 text-center"
+        >
+          <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25">
             <span className="relative z-10">Start Free Trial</span>
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              whileHover={{ scale: 1, opacity: 1 }}
+              className="absolute inset-0 -z-10 bg-gradient-to-r from-pink-500 to-purple-500"
+            />
           </button>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

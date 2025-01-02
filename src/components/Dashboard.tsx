@@ -1,4 +1,3 @@
-// src/components/Dashboard.tsx
 import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
@@ -34,7 +33,7 @@ const Dashboard = () => {
       title: "Create Invoice",
       description: "Generate a new invoice for your clients with smart AI assistance.",
       icon: FileText,
-      link: "/create-invoice",
+      link: "/CreateInvoice", // Updated route path
       color: "from-blue-400 to-blue-600",
       highlightColor: "group-hover:text-blue-500"
     },
@@ -96,7 +95,6 @@ const Dashboard = () => {
           </div>
           <div className="flex items-center gap-4">
             <p className="text-white text-lg">{user ? `Welcome to PayFlows, ${user.displayName}` : 'Welcome to PayFlows'}</p>
-            
           </div>
         </div>
 
@@ -132,15 +130,15 @@ const Dashboard = () => {
                       {card.description}
                     </p>
 
-                    <a
-                      href={card.link}
+                    <button
+                      onClick={() => navigate(card.link)}
                       className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-700 text-white hover:bg-gray-600 transition-colors gap-2"
                     >
                       <span>Go to {card.title}</span>
                       <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center">
                         <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                       </div>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
